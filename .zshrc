@@ -112,3 +112,5 @@ eval "$(zoxide init zsh)"
 
 alias v=nvim
 alias lg=lazygit
+alias cpp='g++ $1 -o ${1%.cpp} && ./${1%.cpp}'
+
