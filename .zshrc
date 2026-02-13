@@ -10,6 +10,8 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(zoxide init zsh)"
 
+alias requestly='/home/msa/Applications/Requestly-26.2.6.AppImage --no-sandbox > /dev/null 2>&1 & disown'
+
 alias fd=fdfind
 alias v=nvim
 alias lg=lazygit
