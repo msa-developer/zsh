@@ -20,6 +20,8 @@ alias cpp='g++ $1 -o ${1%.cpp} && ./${1%.cpp}'
 export VISUAL=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 
+alias qwen='llama-cli -hf bartowski/Qwen3-3B-GGUF:Q4_K_M -cnv -c 2048'
+
 # ---- FZF -----
 # Safer minimal config
 HISTFILE=~/.zsh_history
