@@ -23,14 +23,31 @@ export VISUAL=/usr/bin/vim
 alias qwen='llama-cli -hf bartowski/Qwen3-3B-GGUF:Q4_K_M -cnv -c 2048'
 
 # llama-server start
- # ./build/bin/llama-server \
- #     -m models/Qwen_Qwen3.5-2B-Q4_K_M.gguf \
- #     --jinja \
- #     -c 24576 \
- #     -n 8192 \
- #     --host 0.0.0.0 \
- #     --port 8080 \
- #     -t 4 --threads-batch 4 -b 512 -ngl 999 -fa on
+# ./build/bin/llama-server \
+#    -m models/Qwen_Qwen3.5-2B-Q4_K_M.gguf \
+#    --jinja \
+#    -c 8192 \
+#    -n -1 \
+#    -b 512 -ub 512 \
+#    -ctk q8_0 -ctv q8_0 \
+#    -t 3 --threads-batch 3 \
+#    -fa on \
+#    --host 0.0.0.0 --port 8080
+#
+#
+#
+#
+# So for your 5.7GB RAM + Ryzen 3 3250U:
+#
+#  - That command is the max safe for you. No more n_predict truncate.
+#  - You CAN fix big bugs, but do max 4-5 files per prompt (~6000 tokens). That's big enough for any fullstack bug if you do edit not
+#    write.
+#  - If you paste your whole frontend + backend at once (>8000 tokens) you will hit the c limit again and get n_tokens=8192 truncated=1.
+#
+#  │ Need >6000 token prompt once? Only change -c 8192 to -c 12288 in same command. Don't go higher than 12288 on 5.7GB or you go back to
+#  │ 5 min + swap.
+ # Use it as is - and do /clear after every big bug.
+
 
 
 
