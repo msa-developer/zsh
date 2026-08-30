@@ -22,6 +22,18 @@ export VISUAL=/usr/bin/vim
 
 alias qwen='llama-cli -hf bartowski/Qwen3-3B-GGUF:Q4_K_M -cnv -c 2048'
 
+# llama-server start
+ # ./build/bin/llama-server \
+ #     -m models/Qwen_Qwen3.5-2B-Q4_K_M.gguf \
+ #     --jinja \
+ #     -c 24576 \
+ #     -n 8192 \
+ #     --host 0.0.0.0 \
+ #     --port 8080 \
+ #     -t 4 --threads-batch 4 -b 512 -ngl 999 -fa on
+
+
+
 # ---- FZF -----
 # Safer minimal config
 HISTFILE=~/.zsh_history
