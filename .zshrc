@@ -48,8 +48,14 @@ alias qwen='llama-cli -hf bartowski/Qwen3-3B-GGUF:Q4_K_M -cnv -c 2048'
 #  │ 5 min + swap.
  # Use it as is - and do /clear after every big bug.
 
-
-
+#use laptop as speaker in mobile install this app simple protocol player. 
+pactl load-module module-null-sink sink_name=phone sink_properties=device.description="Phone"
+pactl load-module module-simple-protocol-tcp rate=48000 format=s16le channels=2 source=phone.monitor record=true port=8000
+sudo ufw allow 8000/tcp
+#stop using it. 
+pactl unload-module module-simple-protocol-tcp
+pactl unload-module module-null-sink
+sudo ufw delete allow 8000/tcp
 
 # ---- FZF -----
 # Safer minimal config
